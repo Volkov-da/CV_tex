@@ -1,0 +1,269 @@
+%-------------------------
+% Resume in Latex
+% Based off of: https://github.com/sb2nov/resume
+% and Jake Gutierrez's version of it
+% at https://www.overleaf.com/latex/templates/jakes-resume/syzfjbzwjncs
+% inspired by https://practicaltypography.com/resumes.html
+% License : MIT
+%------------------------
+
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[margin = 1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+
+%--------------UNDERLINING---------------
+% taken from https://alexwlchan.net/2017/10/latex-underlines/
+
+\usepackage{contour}
+\usepackage{ulem}
+
+\renewcommand{\ULdepth}{3.8pt}
+\contourlength{0.8pt}
+
+\newcommand{\myuline}[1]{%
+  \uline{\phantom{#1}}%
+  \llap{\contour{white}{#1}}%
+}
+
+%----------------------------------------
+
+\graphicspath{ {./Images/} }
+
+%----------FONT OPTIONS----------
+\usepackage{fontspec}
+\usepackage{fontawesome5}
+
+% I could have just used the charter package here for the font I wanted...
+% but I'd still need to change compiler to XeLaTeX to include the title font
+% \usepackage{charter}
+
+\setmainfont{XCharter}
+
+\newfontfamily{\basictitle}{basictitlefont}[
+Path = Fonts/,
+Extension = .ttf,
+UprightFont = basictitlefont
+]
+% to use:
+% {\basictitle This text uses the basictitle font}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\iffalse
+% \iftrue
+\addtolength{\oddsidemargin}{0.3in}
+\addtolength{\marginparsep}{0.3in}
+\addtolength{\evensidemargin}{0.3in}
+\addtolength{\textwidth}{-0.5in}
+\addtolength{\topmargin}{0.3in}
+\addtolength{\textheight}{0.3in}
+\fi
+
+\urlstyle{same}
+
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+    {\color{gray}\titlerule} \vspace{-5pt}
+    \vspace{8pt}\scshape\raggedright\normalfont
+}{}{0pt}{}
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+% ----- TOGGLE PHOTO --------
+% comment out \iffalse and remove the % from \iftrue to toggle photo
+\iffalse
+% \iftrue
+\begin{wrapfigure}{R}{0.15\textwidth}
+\vspace{-35pt}
+\includegraphics[scale=0.20]{Images/main_photo.jpg}
+\end{wrapfigure}
+\fi
+
+%----------HEADING----------
+
+{\basictitle \Huge Dmitrii Volkov}
+\\
+
+% ----- TOGGLE FOR PHOTO ----
+% \vspace{10pt}
+
+\href{mailto:your@mail.com}{
+    \faEnvelope
+    \thinspace \thinspace
+    \myuline{volkov.dmrty@gmail.com}} $|$
+\href{https://linkedin.com/in/dmitrii-volkov-data}{
+    \faLinkedin
+    \thinspace \thinspace        
+    \myuline{dmitrii-volkov-data}} $|$
+\href{https://github.com/Volkov-da}{
+    \faGithub
+    \thinspace \thinspace
+    \myuline{Volkov-da}} $|$
+\thinspace \thinspace
+\href{https://t.me/Volkov_Di}{
+    \faTelegram
+    \thinspace \thinspace        
+    \myuline{Volkov\_Di}}
+
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Yandex Search}{2 yrs 5 mos (Full-time)}
+      {Senior Product Analyst}{Nov 2024 - present}
+      \resumeItemListStart
+      
+        \resumeItem{Yandex Search — shipped LLM-augmented search; measurable relevance/UX gains at scale.}
+        \resumeItem{Led human-in-the-loop data labeling: task specs, quality control/adjudication.}
+        \resumeItem{Built LLM answer-evaluation pipelines; benchmarked prompts/configs; selected production variants.}
+        \resumeItem{Designed offline metrics and eval harnesses for ranking/recs; aligned offline–online signals.}
+        \resumeItem{Owned A/B experimentation end-to-end (platform + manual): design, guardrails, analysis; launched multiple wins.}
+      \resumeItemListEnd
+      
+      % \iffalse
+      % \iftrue
+% -----------Multiple Positions Heading-----------
+    \resumeSubSubheading
+     {Product Analyst}{May 2023 - Nov 2024}
+    \resumeItemListStart
+        \resumeItem{Led end-to-end data lifecycle for search/recommendation models: requirements, large-scale collection, quality gates.}
+        \resumeItem{Built scalable feature/label extraction and training/validation pipelines, automated releases.}
+        \resumeItem{Planned, ran, and analyzed rigorous A/B tests with guardrails; safely shipped multiple model upgrades.}
+     \resumeItemListEnd
+    \resumeSubHeadingListEnd
+    
+    \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Procter \& Gamble (P\&G)}{1 yr 6 mos (Full-time)}
+      {Data Analyst}{Apr 2022 - May 2023}
+      \resumeItemListStart
+        \resumeItem{Build BI reporting system for Eastern Europe region. Starting with raw data from 200+ different sources (0.5TB daily), ending up with real time analytics system for stake-holders}
+      \resumeItemListEnd
+
+% -----------Multiple Positions Heading-----------
+    \resumeSubSubheading
+     {Intern Data Analyst}{Dec 2021 - Apr 2022}
+    \resumeItemListStart
+        \resumeItem{Sucessfully applied advanced clustering techniques to company customers to identify fraud.}
+     \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+    \resumeSubHeadingListStart
+    \resumeSubheading
+      {Skolkovo Institute of Science and Technology (Skoltech)}{3 mos (Full-time)}
+      {Intern Researcher}{Jul 2021 - Oct 2021}
+      \resumeItemListStart
+        \resumeItem{Developed Python package for theoretical calculations of magnetic materials properties.}
+      \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Skolkovo Institute of Science and Technology (Skoltech)}{2019 -- 2021}
+      {MSc in Materials Science, with honors GPA 5.0/5}{}
+
+    \resumeSubheading
+      {Bauman Moscow State Technical University (BMSTU)} {2015 -- 2019}
+      {BSc in Materials Science GPA 4.5/5}{}
+      
+  \resumeSubHeadingListEnd
+
+%-----------CCAs-----------
+\section{Extracurriculars}
+    \resumeSubHeadingListStart
+    
+      \resumeSubheading
+      {Yandex Practicum}{Nov 2024 -- May 2025}
+      {Author}{}
+      \resumeItemListStart
+        \resumeItem{Product and Data analytics courses author.}
+      \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+%-----------PROGRAMMING SKILLS-----------
+\section{Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Russian (native), English (C1), Spanish (A2)} \\
+     \textbf{Analytical skills}{: A/B testing, causal inference} \\
+     \textbf{Programming Languages}{: Python, C++, SQL} \\
+     \textbf{Databases}{: PostgreSQL, ClickHouse, PySpark} \\
+     \textbf{ML / DL}{: Pandas, NumPy, Scikit-Learn, PyTorch, CatBoost, XGBoost} \\
+     \textbf{Visualization}{: Power BI, DataLens, Plotly, Dash, Matplotlib} \\
+     \textbf{Developer Tools}{: Linux, Bash, Docker, Git, Azure Databricks, Cursor} \\
+     }
+     }
+ \end{itemize}
+
+%-------------------------------------------
+\end{document}
