@@ -1,1 +1,33 @@
+# OS files
 .DS_Store
+Thumbs.db
+desktop.ini
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+*.xdv
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.nav
+*.snm
+*.vrb
+
+# Default build output (the committed PDF is CV_Volkov.pdf, built with -jobname=CV_Volkov)
+main.pdf
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*~
